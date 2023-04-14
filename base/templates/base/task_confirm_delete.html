@@ -1,0 +1,13 @@
+{% extends 'base/index.html' %} {% block content %}
+
+<!-- Base -->
+<section class="base grid">
+  <div class="title pd_l grid"><h2>Delete task</h2></div>
+  <form class="form grid" action="" method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delete '{{task}}'?</p>
+    <input class="button mg_l" type="submit" value="Yes" />
+  </form>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'base/index.html' %} {% block content %}
+<section class="base grid">
+  <div class="title pd_l grid"><h2>Edit your task</h2></div>
+  <form class="form" method="POST" action="">
+    {% csrf_token %}
+    <div class="grid">{{form.as_p}}</div>
+    <input type="submit" value="Submit" />
+  </form>
+</section>
+
+{% endblock content %}

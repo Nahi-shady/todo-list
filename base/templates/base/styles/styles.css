@@ -1,0 +1,124 @@
+/*==================== BASE ====================*/
+/*======= variables =======*/
+:root{
+  --bg-color: rgb(47 185 255);
+  --light: rgb(255, 255, 255);
+  --light-dark: rgb(220, 250, 255);
+  --dark: rgb(0, 0, 0);
+  --hover: rgb(0, 2, 5);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--light);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+.mg_sm{
+  margin: 0.5rem;
+}
+.mg_l{
+  margin: 1rem;
+}
+.mg_xl{
+  margin: 3rem;
+}
+
+.pd_sm{
+  padding: 0.5rem;
+}
+.pd_l{
+  padding: 1rem;
+}
+.pd_xl{
+  padding: 3rem;
+}
+
+
+.btn {
+  display: inline-block;
+  color: var(--light);
+  cursor: pointer;
+  background-color: var(--bg-color);
+  padding: 0.7rem;
+  border: 1px solid var(--light);
+  margin: 1rem auto;
+  transition: 0.2s;
+}
+.btn:hover{
+  border-radius: 1rem;
+}
+
+.container {
+  max-width: none;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.grid {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+
+
+.flex {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+
+/* navigation */
+.logo{
+  padding: 5px;
+}
+.navigation{
+  background-color: var(--bg-color);
+  padding: 0 3rem;
+  color: var(--light);
+  position: fixed;
+  width: 100%;
+  box-shadow: 0 3px 9px rgba(0,0,0,.35);
+}
+.nav_link{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: .6rem;
+  font-size: .813rem;
+  font-weight: 500;
+  transition: 1.5s;
+}
+.nav_link:hover{
+  background-color: var(--hover);
+  color: var(--light);
+}
+
+
+
+/*======= Background =======*/
+.footer{
+  background-color: var(--dark);
+  color: var(--light);
+}

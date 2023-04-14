@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do list</title>
+
+    <style>
+      /*==================== BASE ====================*/
+      /*======= variables =======*/
+      :root {
+        --bg-color: rgb(47 185 255);
+        --light: rgb(255, 255, 255);
+        --light-dark: rgb(220, 250, 255);
+        --dark: rgb(0, 0, 0);
+        --hover: rgb(0, 2, 5);
+      }
+
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: cursive;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--dark);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 1rem;
+      }
+
+      .mg_sm {
+        margin: 0.5rem;
+      }
+      .mg_l {
+        margin: 1rem;
+      }
+      .mg_xl {
+        margin: 3rem;
+      }
+
+      .pd_sm {
+        padding: 0.5rem;
+      }
+      .pd_l {
+        padding: 1rem;
+      }
+      .pd_xl {
+        padding: 3rem;
+      }
+
+      .btn {
+        display: inline-block;
+        color: red;
+        cursor: pointer;
+        padding: 0.1rem;
+        margin: 0.1rem;
+        font-size: 1rem;
+        transition: 0.2s;
+      }
+
+      .btn:hover {
+        font-size: 0.8rem;
+      }
+      .button {
+        display: inline-block;
+        color: rgb(255, 0, 0);
+        background-color: rgb(94, 255, 94);
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+        padding: 4px;
+        margin: auto;
+        font-size: 1rem;
+        transition: 0.2s;
+      }
+      .container {
+        max-width: none;
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+
+      .grid {
+        display: grid;
+        align-content: center;
+        justify-content: center;
+      }
+
+      .flex {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+      }
+      .form {
+        margin: 1rem 0;
+        gap: 1rem;
+      }
+      /* navigation */
+      .logo {
+        padding: 5px;
+      }
+      .navigation {
+        background-color: var(--bg-color);
+        padding: 0 3rem;
+        color: var(--light);
+        position: relative;
+        width: 100%;
+        box-shadow: 0 3px 9px rgba(0, 0, 0, 0.35);
+        margin-bottom: 4rem;
+      }
+      .nav_link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.6rem;
+        font-size: 0.813rem;
+        font-weight: 500;
+        transition: 1.5s;
+      }
+      .nav_link:hover {
+        background-color: var(--hover);
+        color: var(--light);
+      }
+      .box {
+        max-width: 550px;
+        margin: auto;
+      }
+      .base {
+        box-shadow: 0 16px 6px rgba(0, 0, 0, 0.35);
+        background-color: cornflowerblue;
+        border-radius: 30px 30px 0 0;
+      }
+
+      /* task list */
+      .title {
+        padding: 1rem;
+        border-radius: 0 0 30px 30px;
+        background-color: rgb(255, 255, 255);
+        border: 1px cornflowerblue;
+        justify-self: start;
+      }
+      .message {
+        color: rgb(0, 0, 0);
+        margin: 1rem;
+        border-radius: 5px;
+        background-color: rgb(141, 177, 245);
+        box-shadow: 0 16px 6px rgba(0, 0, 0, 0.35);
+      }
+      .message {
+        padding: 5px;
+        background-color: aliceblue;
+      }
+      .content {
+        overflow-y: scroll;
+        max-height: 325px;
+      }
+      .tasks {
+        padding: 15px 40px;
+        margin: 1rem 0;
+        background-color: #7cc2ff;
+        border-radius: 1rem;
+        box-shadow: 0 6px 6px rgba(0, 0, 0, 0.35);
+      }
+      .underline {
+        padding: 3px;
+        border-left: solid 1px black;
+        transition: 0.2s;
+      }
+      .underline:hover {
+        padding: 8px;
+        border-bottom: solid 3px black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <! ===== navigation ====== !>
+    <section class="navigation flex">
+      <div class="logo">
+        <a href="{% url 'tasks' %}"
+          ><h1>To<i>do </i>list</h1></a
+        >
+      </div>
+      <div class="nav_container grid">
+        <ul class="flex">
+          {% if request.user.is_authenticated %}
+          <li>{{request.user}}</li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+
+          {% else %}
+          <li>
+            <a href="{% url 'login' %}">Login</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </section>
+    <div class="box">{% block content %} {% endblock content %}</div>
+  </body>
+</html>

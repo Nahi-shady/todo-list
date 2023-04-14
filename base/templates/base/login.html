@@ -1,0 +1,14 @@
+{% extends 'base/index.html' %} {% block content %}
+
+<!-- Base -->
+<section class="base grid">
+  <div class="title pd_l grid"><h2>Login</h2></div>
+
+  <form class="form grid" action="" method="post">
+    {% csrf_token %} {{form}}
+    <input type="submit" value="Login" />
+  </form>
+
+  <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+</section>
+{% endblock content %}

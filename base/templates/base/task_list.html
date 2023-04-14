@@ -1,0 +1,34 @@
+{% extends 'base/index.html' %} {% block content %}
+<!-- Base -->
+<section class="base grid">
+  <div class="title flex">
+    <h3>Manage your activities</h3>
+    <div>
+      <form action="" method="GET" class="flex">
+        <input type="text" value="{{search_input}}" name="search-area" />
+        <input type="submit" value="Search" />
+      </form>
+    </div>
+  </div>
+  <div class="message container flex">
+    <a href="{% url 'task-create' %}"><p class="message_p">Add task +</p> </a>
+    <p>You have <i>{{count}}</i> tasks to complete.</p>
+  </div>
+  <div class="content">
+    {% for item in tasks %}
+    <div class="flex container tasks">
+      <a class="underline" href="{% url 'task-update' item.id %}"
+        >{{item.title}}</a
+      >
+      <p>
+        <a class="btn" href="{% url 'task-delete' item.id %}">Delete</a>
+      </p>
+    </div>
+
+    {% empty %}
+    <div class="container grid"><p>You have nothing to do</p></div>
+
+    {% endfor %}
+  </div>
+</section>
+{% endblock content %}
