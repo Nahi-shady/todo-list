@@ -36,6 +36,6 @@ This pages lets you
 
 ## Delete tasks
 
-- Confirm your delete
+- Confirm your delete.
 
 ![Home](readme_src/delete.png)
